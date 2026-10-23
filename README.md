@@ -21,6 +21,21 @@ It doesn't install anything into Windows, but this is what it writes:
 - **`%TEMP%\_MEI…`**: the exe carries its own private copy of Python (with Tk and Pillow), the map generator and the fonts. It unpacks them here when it starts and removes them again when you close it. If it crashes, that folder can stay behind, it's safe to delete
 - **`%TEMP%\ReatsMapMaker\`**: working files for the current map (raw image, label data, your edits), overwritten each time. Also safe to delete
 
+### What's inside the exe
+
+For transparency, this is everything that ships inside `ReatsMapMaker-0.1.exe`:
+
+| Part | Version | What it's for | License |
+|------|---------|---------------|---------|
+| The map generator (`ChartPreview.exe`) | 0.1 | Generates the world and draws the chart, my own C++ code | mine |
+| Python runtime | 3.14.3 | Runs the window and the lettering | PSF License |
+| Tcl/Tk (tkinter) | 8.6 | The window itself | Tcl/Tk License (BSD style) |
+| Pillow | 12.2.0 | Sets the letters on the map and writes the PNGs | MIT-CMU |
+| PyInstaller bootloader | 6.22.3 | The small starter that unpacks everything and launches it | GPL 2 with an exception that allows bundling |
+| IM Fell English (Roman, Italic, SC) | | The typeface on the charts | SIL Open Font License, included |
+
+That's all. No telemetry, no updater, nothing that talks to the internet.
+
 It does not install Python on your system, doesn't touch a Python you already have, and doesn't download anything. No registry entries, no admin rights, no Start menu entry. The fonts are only loaded for the app itself, they don't get installed either.
 
 ## What it does
