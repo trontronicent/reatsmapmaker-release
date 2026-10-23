@@ -13,7 +13,15 @@ This repo only holds the releases. The code lives with the game.
 
 ## Download
 
-Grab the latest `ReatsMapMaker-<version>.exe` from [Releases](../../releases/latest). It's a single file, no installer. Put it in a folder and run it, the maps get saved to a `Maps` folder next to it.
+Grab the latest `ReatsMapMaker-<version>.exe` from [Releases](../../releases/latest). It's a single file, no installer. Put it in a folder and run it.
+
+It doesn't install anything into Windows, but this is what it writes:
+
+- **`Maps\`** next to the exe: your maps (PNG)
+- **`%TEMP%\_MEI…`**: the exe carries its own private copy of Python (with Tk and Pillow), the map generator and the fonts. It unpacks them here when it starts and removes them again when you close it. If it crashes, that folder can stay behind, it's safe to delete
+- **`%TEMP%\ReatsMapMaker\`**: working files for the current map (raw image, label data, your edits), overwritten each time. Also safe to delete
+
+It does not install Python on your system, doesn't touch a Python you already have, and doesn't download anything. No registry entries, no admin rights, no Start menu entry. The fonts are only loaded for the app itself, they don't get installed either.
 
 ## What it does
 
@@ -63,7 +71,7 @@ Currently there are two creation versions:
 
 - **C++** for the world generator and the chart renderer. It's the exact same code the game runs, compiled without the engine
 - **Python** with Tkinter for the window and Pillow for setting the lettering and writing the PNGs
-- Packaged into one exe with PyInstaller
+- Packaged into one exe with PyInstaller. That only runs on my machine when I build a release, you don't need it
 - The typeface is IM Fell by Igino Marini, under the SIL Open Font License, which is included
 
 ## Current limitations
