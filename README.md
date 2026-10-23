@@ -36,6 +36,8 @@ For transparency, this is everything that ships inside `ReatsMapMaker-0.1.exe`:
 
 That's all. No telemetry, no updater, nothing that talks to the internet.
 
+The full license texts of all of these are in [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt). The same file is inside the exe and attached to every release.
+
 It does not install Python on your system, doesn't touch a Python you already have, and doesn't download anything. No registry entries, no admin rights, no Start menu entry. The fonts are only loaded for the app itself, they don't get installed either.
 
 ## What it does
